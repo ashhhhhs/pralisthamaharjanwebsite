@@ -105,9 +105,9 @@ button {
   align-items: baseline;
   color: var(--ink);
   font-family: var(--serif);
-  font-size: 1.48rem;
+  font-size: 1.36rem;
   font-weight: 700;
-  line-height: 0.92;
+  line-height: 1.05;
 }
 
 .brand span:last-child {
@@ -265,8 +265,9 @@ h1 {
   max-width: 740px;
   color: var(--ink);
   font-family: var(--serif);
-  font-size: clamp(4.6rem, 11vw, 9.8rem);
+  font-size: clamp(4rem, 8.7vw, 8.2rem);
   font-weight: 600;
+  line-height: 1.03;
 }
 
 h1 span {
@@ -965,7 +966,7 @@ h1 span {
   }
 
   .brand {
-    font-size: 1.26rem;
+    font-size: 1.12rem;
   }
 
   .hero {
@@ -973,7 +974,7 @@ h1 span {
   }
 
   h1 {
-    font-size: clamp(3.8rem, 18vw, 5rem);
+    font-size: clamp(3.1rem, 14vw, 4rem);
   }
 
   h1 span {
