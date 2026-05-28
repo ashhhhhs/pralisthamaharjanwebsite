@@ -7,7 +7,7 @@
       name="description"
       content="A modern personal modeling portfolio featuring selected shoots, experience, and contact details."
     />
-    <title>Your Name | Modeling Portfolio</title>
+    <title>Pralistha Maharjan | Modeling Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -18,9 +18,9 @@
   </head>
   <body>
     <header class="site-header" data-header>
-      <a class="brand" href="#home" aria-label="Your Name home">
-        <span>Your</span>
-        <span>Name</span>
+      <a class="brand" href="#home" aria-label="Pralistha Maharjan home">
+        <span>Pralistha</span>
+        <span>Maharjan</span>
       </a>
 
       <button
@@ -50,7 +50,7 @@
           <div class="hero-copy reveal">
             <p class="eyebrow">Portfolio 2026</p>
             <h1 id="hero-title">
-              Your Name
+              Pralistha Maharjan
               <span>Model & Creative Talent</span>
             </h1>
             <p class="hero-text">
@@ -107,7 +107,7 @@
           </div>
 
           <figure class="about-photo reveal">
-            <img src="images/about/profile.jpg" alt="Your Name portrait" />
+            <img src="images/about/profile.jpg" alt="Pralistha Maharjan portrait" />
           </figure>
         </div>
       </section>
@@ -119,11 +119,31 @@
             <h2 id="work-title">Portraits, campaigns, and visual stories with presence.</h2>
           </div>
 
-          <div class="project-grid">
+          <div class="work-toolbar reveal">
+            <p>Scroll sideways to explore the full shoot gallery.</p>
+            <div class="gallery-controls" aria-label="Selected shoots controls">
+              <button type="button" aria-label="Scroll selected shoots left" data-gallery-prev>
+                <span aria-hidden="true">&larr;</span>
+              </button>
+              <button type="button" aria-label="Scroll selected shoots right" data-gallery-next>
+                <span aria-hidden="true">&rarr;</span>
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="project-grid"
+            tabindex="0"
+            aria-label="Scrollable selected shoot gallery"
+            data-shoot-gallery
+          >
             <article class="project-card reveal">
-              <a class="project-image" href="#" aria-label="View street campaign shoot">
-                <img src="images/projects/electric-motion.jpg" alt="Street campaign shoot preview" />
-              </a>
+              <div class="project-image">
+                <img
+                  src="images/gallery/electric-motion.jpg"
+                  alt="Pralistha Maharjan in a street campaign scooter shoot"
+                />
+              </div>
               <div class="project-body">
                 <p class="project-kicker">Street Campaign</p>
                 <h3>Electric Motion</h3>
@@ -131,20 +151,16 @@
                   A city-led campaign set with sharp styling, scooter movement,
                   and a confident lifestyle edge.
                 </p>
-                <div class="project-links">
-                  <a href="#">View Gallery</a>
-                  <a href="#">Shoot Details</a>
-                </div>
               </div>
             </article>
 
             <article class="project-card reveal">
-              <a class="project-image" href="#" aria-label="View beauty close-up shoot">
+              <div class="project-image">
                 <img
-                  src="images/projects/helmet-close-up.jpg"
-                  alt="Beauty close-up shoot preview"
+                  src="images/gallery/helmet-close-up.jpg"
+                  alt="Pralistha Maharjan close-up portrait with helmet"
                 />
-              </a>
+              </div>
               <div class="project-body">
                 <p class="project-kicker">Beauty</p>
                 <h3>Helmet Close-Up</h3>
@@ -152,17 +168,16 @@
                   A detail-focused portrait with expressive eyes, clean framing,
                   and a polished editorial finish.
                 </p>
-                <div class="project-links">
-                  <a href="#">View Gallery</a>
-                  <a href="#">Shoot Details</a>
-                </div>
               </div>
             </article>
 
             <article class="project-card reveal">
-              <a class="project-image" href="#" aria-label="View creative portrait story">
-                <img src="images/projects/chalk-wall-story.jpg" alt="Creative portrait story preview" />
-              </a>
+              <div class="project-image">
+                <img
+                  src="images/gallery/chalk-wall-story.jpg"
+                  alt="Pralistha Maharjan creative portrait against a chalk wall"
+                />
+              </div>
               <div class="project-body">
                 <p class="project-kicker">Creative Portrait</p>
                 <h3>Chalk Wall Story</h3>
@@ -170,17 +185,16 @@
                   A playful indoor portrait pairing soft styling with a graphic
                   backdrop and curious, candid expression.
                 </p>
-                <div class="project-links">
-                  <a href="#">View Gallery</a>
-                  <a href="#">Shoot Details</a>
-                </div>
               </div>
             </article>
 
             <article class="project-card reveal">
-              <a class="project-image" href="#" aria-label="View lifestyle portrait shoot">
-                <img src="images/projects/garden-light.jpg" alt="Lifestyle portrait shoot preview" />
-              </a>
+              <div class="project-image">
+                <img
+                  src="images/gallery/garden-light.jpg"
+                  alt="Pralistha Maharjan lifestyle portrait in soft garden light"
+                />
+              </div>
               <div class="project-body">
                 <p class="project-kicker">Lifestyle</p>
                 <h3>Garden Light</h3>
@@ -188,10 +202,91 @@
                   A bright, personal portrait story with relaxed movement,
                   approachable styling, and natural warmth.
                 </p>
-                <div class="project-links">
-                  <a href="#">View Gallery</a>
-                  <a href="#">Shoot Details</a>
-                </div>
+              </div>
+            </article>
+
+            <article class="project-card reveal">
+              <div class="project-image">
+                <img
+                  src="images/gallery/heritage-smile.jpg"
+                  alt="Pralistha Maharjan smiling in a heritage portrait shoot"
+                />
+              </div>
+              <div class="project-body">
+                <p class="project-kicker">Heritage Portrait</p>
+                <h3>Heritage Smile</h3>
+                <p>
+                  A warm portrait with traditional textures, calm styling, and
+                  an approachable, expressive mood.
+                </p>
+              </div>
+            </article>
+
+            <article class="project-card reveal">
+              <div class="project-image">
+                <img
+                  src="images/gallery/heritage-composure.jpg"
+                  alt="Pralistha Maharjan seated in a composed heritage portrait"
+                />
+              </div>
+              <div class="project-body">
+                <p class="project-kicker">Campaign Portrait</p>
+                <h3>Heritage Composure</h3>
+                <p>
+                  A composed visual moment built around elegant posture,
+                  traditional architecture, and quiet confidence.
+                </p>
+              </div>
+            </article>
+
+            <article class="project-card reveal">
+              <div class="project-image">
+                <img
+                  src="images/gallery/forest-stillness.jpg"
+                  alt="Pralistha Maharjan in an outdoor forest editorial shoot"
+                />
+              </div>
+              <div class="project-body">
+                <p class="project-kicker">Outdoor Editorial</p>
+                <h3>Forest Stillness</h3>
+                <p>
+                  A mood-led outdoor frame pairing natural scenery with dramatic
+                  styling and stillness.
+                </p>
+              </div>
+            </article>
+
+            <article class="project-card reveal">
+              <div class="project-image">
+                <img
+                  src="images/gallery/soft-garden.jpg"
+                  alt="Pralistha Maharjan natural portrait with soft greenery"
+                />
+              </div>
+              <div class="project-body">
+                <p class="project-kicker">Natural Portrait</p>
+                <h3>Soft Garden</h3>
+                <p>
+                  A close, gentle portrait with soft greenery, expressive gaze,
+                  and easy natural presence.
+                </p>
+              </div>
+            </article>
+
+            <article class="project-card reveal">
+              <div class="project-image">
+                <img
+                  src="images/gallery/golden-walk.jpg"
+                  alt="Pralistha Maharjan walking through golden urban light"
+                />
+              </div>
+              <div class="project-body">
+                <p class="project-kicker">Urban Editorial</p>
+                <h3>Golden Walk</h3>
+                <p>
+                  A dramatic city portrait shaped by golden light, movement, and
+                  clean editorial framing.
+                </p>
               </div>
             </article>
           </div>
@@ -281,7 +376,7 @@
     </main>
 
     <footer class="site-footer">
-      <p>&copy; <span data-year></span> Your Name. All rights reserved.</p>
+      <p>&copy; <span data-year></span> Pralistha Maharjan. All rights reserved.</p>
     </footer>
 
     <script src="js/main.js"></script>

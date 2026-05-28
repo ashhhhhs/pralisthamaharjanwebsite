@@ -5,6 +5,9 @@ const nav = document.querySelector("[data-nav]");
 const navLinks = [...document.querySelectorAll(".site-nav a")];
 const sections = [...document.querySelectorAll("main section[id]")];
 const revealItems = [...document.querySelectorAll(".reveal")];
+const shootGallery = document.querySelector("[data-shoot-gallery]");
+const galleryPrev = document.querySelector("[data-gallery-prev]");
+const galleryNext = document.querySelector("[data-gallery-next]");
 const year = document.querySelector("[data-year]");
 
 if (year) {
@@ -64,6 +67,18 @@ const navObserver = new IntersectionObserver(
 );
 
 sections.forEach((section) => navObserver.observe(section));
+
+const scrollShootGallery = (direction) => {
+  if (!shootGallery) return;
+
+  shootGallery.scrollBy({
+    left: direction * shootGallery.clientWidth * 0.82,
+    behavior: "smooth",
+  });
+};
+
+galleryPrev?.addEventListener("click", () => scrollShootGallery(-1));
+galleryNext?.addEventListener("click", () => scrollShootGallery(1));
 
 window.addEventListener("keydown", (event) => {
   if (event.key === "Escape") closeMenu();
