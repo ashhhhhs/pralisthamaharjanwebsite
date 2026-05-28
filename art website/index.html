@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Single-person art portfolio for Pralistha Maharjan, presenting paintings, sketches, stories, skills, and commission contact."
+    />
+    <title>Pralistha Maharjan | Art Site</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600;700;800&family=IBM+Plex+Sans+JP:wght@400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="scroll-progress" data-scroll-progress aria-hidden="true"></div>
+    <div class="page-loader" data-loader aria-hidden="true">
+      <span>Pralistha Maharjan</span>
+      <i></i>
+    </div>
+
+    <header class="site-header" data-header>
+      <a class="logo-card" href="#top" aria-label="Pralistha Art Site home">
+        <span class="logo-main">PRAL<br />ISTHA</span>
+        <span class="logo-dot">!</span>
+        <span class="logo-sub">ART SITE</span>
+      </a>
+
+      <nav class="desktop-nav" aria-label="Primary navigation">
+        <a href="#profile">Profile</a>
+        <a href="#works">Works</a>
+        <a href="#stories">Stories</a>
+        <a href="#process">Process</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="top-actions">
+        <button class="menu-button" type="button" aria-expanded="false" data-menu-toggle>
+          <span>Menu</span>
+          <i aria-hidden="true"></i>
+        </button>
+        <a class="entry-button" href="#contact">
+          <span></span>
+          Commission
+        </a>
+      </div>
+    </header>
+
+    <aside class="menu-panel" data-menu-panel aria-hidden="true">
+      <button class="menu-close" type="button" aria-label="Close menu" data-menu-close></button>
+      <nav aria-label="Expanded navigation">
+        <a href="#profile"><span>profile</span>One artist</a>
+        <a href="#works"><span>works</span>Selected pieces</a>
+        <a href="#stories"><span>stories</span>Behind the work</a>
+        <a href="#process"><span>process</span>Studio rhythm</a>
+        <a href="#skills"><span>skills</span>Process and tools</a>
+        <a href="#contact"><span>contact</span>Commission inquiry</a>
+      </nav>
+    </aside>
+
+    <main id="top">
+      <section class="hero section" aria-labelledby="hero-title">
+        <p class="script-word hero-script" aria-hidden="true">Art for memory.</p>
+        <div class="hero-collage" aria-label="Selected artwork collage">
+          <img class="hero-img img-a reveal" data-depth="0.16" src="assets/art/blue-cowherd.jpg" alt="Blue deity painting with white cow" fetchpriority="high" />
+          <img class="hero-img img-b reveal" data-depth="-0.12" src="assets/art/tiger-in-red-suit.jpg" alt="Tiger-headed figure in red suit" fetchpriority="high" />
+          <img class="hero-img img-c reveal" data-depth="0.1" src="assets/art/neon-listener.jpg" alt="Neon headphone portrait painting" />
+          <img class="hero-img img-d reveal" data-depth="-0.08" src="assets/art/wrathful-dancer.jpg" alt="Expressive masked dancer painting" />
+          <img class="hero-img img-e reveal" data-depth="0.2" src="assets/art/festival-face.jpg" alt="Festival face painting with warm red texture" />
+        </div>
+        <div class="hero-message reveal">
+          <p>One artist, many inner worlds.</p>
+          <h1 id="hero-title">Build a visual memory that stays with people.</h1>
+        </div>
+        <p class="scroll-cue">scroll down</p>
+      </section>
+
+      <section class="statement section" aria-labelledby="statement-title">
+        <p class="script-word">New Future.<br />New Canvas.</p>
+        <div class="statement-copy reveal">
+          <p class="eyebrow">Artist statement</p>
+          <h2 id="statement-title">
+            Creating characters, symbols, and colors that feel personal long
+            after the first look.
+          </h2>
+          <p>
+            Pralistha Maharjan works across acrylic painting, graphite studies,
+            character concepts, and mixed-media experiments. Every piece begins
+            with a feeling, then becomes a face, a ritual mark, or a small
+            world with its own atmosphere.
+          </p>
+        </div>
+      </section>
+
+      <section class="photo-river section" aria-label="Studio fragments">
+        <p class="section-note">Here, art is a personal record of color, culture, and imagination.</p>
+        <div class="river-grid">
+          <img class="reveal" data-parallax="-28" src="assets/art/moonlit-profile.jpg" alt="Profile portrait on canvas" />
+          <img class="reveal" data-parallax="18" src="assets/art/ritual-mask-sketch.jpg" alt="Graphite ritual mask sketch" />
+          <img class="reveal" data-parallax="-20" src="assets/art/chrome-figure.jpg" alt="Chrome figure study" />
+          <img class="reveal" data-parallax="24" src="assets/art/courtyard-canvas.jpg" alt="Canvas displayed in courtyard light" />
+          <img class="reveal" data-parallax="-16" src="assets/art/feather-study.jpg" alt="Ornamental feather sketch" />
+          <img class="reveal" data-parallax="22" src="assets/art/blue-deity-canvas.jpg" alt="Blue deity canvas" />
+          <img class="reveal" data-parallax="-18" src="assets/art/shrine-portrait.jpg" alt="Shrine portrait painting" />
+          <img class="reveal" data-parallax="20" src="assets/art/firebird-sketch.jpg" alt="Firebird sketch" />
+          <img class="reveal" data-parallax="-22" src="assets/art/elder-portrait-study.jpg" alt="Graphite elder portrait" />
+        </div>
+      </section>
+
+      <section class="profile section split" id="profile" aria-labelledby="profile-title">
+        <div class="split-title">
+          <p class="script-word">Profile.</p>
+          <span>01</span>
+        </div>
+        <div class="split-media reveal">
+          <img src="assets/art/shrine-portrait.jpg" alt="Portrait painting on easel" />
+        </div>
+        <div class="split-copy reveal">
+          <p class="eyebrow">One person / one practice</p>
+          <h2 id="profile-title">A single artist building a language of faces.</h2>
+          <p>
+            The work blends mythic figures, intimate portraits, pop-inspired
+            color, and quiet studies from the studio. It is made for people who
+            want art with presence, story, and a human hand behind every mark.
+          </p>
+          <a class="line-link" href="#stories">Read the stories <span>&rarr;</span></a>
+        </div>
+      </section>
+
+      <section class="works section" id="works" aria-labelledby="works-title">
+        <div class="works-heading reveal">
+          <p class="script-word">Works.</p>
+          <h2 id="works-title">Selected pieces</h2>
+        </div>
+        <div class="filter-bar reveal" aria-label="Filter artworks">
+          <button class="filter-button is-active" type="button" data-filter="all">All</button>
+          <button class="filter-button" type="button" data-filter="painting">Paintings</button>
+          <button class="filter-button" type="button" data-filter="character">Characters</button>
+          <button class="filter-button" type="button" data-filter="study">Studies</button>
+        </div>
+        <div class="work-list" data-work-list>
+          <article
+            class="work-row reveal"
+            role="button"
+            tabindex="0"
+            data-art-card
+            data-category="painting"
+            data-title="Blue Cowherd"
+            data-medium="Acrylic painting"
+            data-description="A saturated mythic portrait with a quiet animal companion, built around devotional blues, yellow light, and hand-painted texture."
+            data-image="assets/art/blue-cowherd.jpg"
+            aria-label="Open Blue Cowherd artwork"
+          >
+            <span>01</span>
+            <img src="assets/art/blue-cowherd.jpg" alt="Blue Cowherd painting" />
+            <div>
+              <p>Acrylic painting</p>
+              <h3>Blue Cowherd</h3>
+              <p>A saturated mythic portrait with a quiet animal companion.</p>
+            </div>
+          </article>
+          <article
+            class="work-row reveal"
+            role="button"
+            tabindex="0"
+            data-art-card
+            data-category="character"
+            data-title="Tiger in Red Suit"
+            data-medium="Character concept"
+            data-description="A hybrid formal portrait with theatrical humor, sharp tailoring, and an animal gaze held like a stage light."
+            data-image="assets/art/tiger-in-red-suit.jpg"
+            aria-label="Open Tiger in Red Suit artwork"
+          >
+            <span>02</span>
+            <img src="assets/art/tiger-in-red-suit.jpg" alt="Tiger in Red Suit artwork" />
+            <div>
+              <p>Character concept</p>
+              <h3>Tiger in Red Suit</h3>
+              <p>A hybrid figure with formalwear, humor, and theatrical poise.</p>
+            </div>
+          </article>
+          <article
+            class="work-row reveal"
+            role="button"
+            tabindex="0"
+            data-art-card
+            data-category="painting"
+            data-title="Neon Listener"
+            data-medium="Acrylic on canvas"
+            data-description="A glowing portrait about technology, sound, and stillness, balancing warm ground color with cool electric skin."
+            data-image="assets/art/neon-listener.jpg"
+            aria-label="Open Neon Listener artwork"
+          >
+            <span>03</span>
+            <img src="assets/art/neon-listener.jpg" alt="Neon Listener artwork" />
+            <div>
+              <p>Acrylic on canvas</p>
+              <h3>Neon Listener</h3>
+              <p>A glowing portrait about technology, sound, and stillness.</p>
+            </div>
+          </article>
+          <article
+            class="work-row reveal"
+            role="button"
+            tabindex="0"
+            data-art-card
+            data-category="study"
+            data-title="Ritual Mask Study"
+            data-medium="Graphite study"
+            data-description="A graphite mask study focused on shadow, symmetry, ornament, and the quiet pressure of an unfinished face."
+            data-image="assets/art/ritual-mask-sketch.jpg"
+            aria-label="Open Ritual Mask Study artwork"
+          >
+            <span>04</span>
+            <img src="assets/art/ritual-mask-sketch.jpg" alt="Ritual mask graphite sketch" />
+            <div>
+              <p>Graphite study</p>
+              <h3>Ritual Mask Study</h3>
+              <p>A tonal sketch where ornament and expression meet.</p>
+            </div>
+          </article>
+          <article
+            class="work-row reveal"
+            role="button"
+            tabindex="0"
+            data-art-card
+            data-category="character"
+            data-title="Chrome Figure"
+            data-medium="Figure concept"
+            data-description="A futuristic figure study that treats the body like reflected metal, soft light, and a small speculative world."
+            data-image="assets/art/chrome-figure.jpg"
+            aria-label="Open Chrome Figure artwork"
+          >
+            <span>05</span>
+            <img src="assets/art/chrome-figure.jpg" alt="Chrome figure study" />
+            <div>
+              <p>Figure concept</p>
+              <h3>Chrome Figure</h3>
+              <p>A speculative body study with reflected light and tension.</p>
+            </div>
+          </article>
+          <article
+            class="work-row reveal"
+            role="button"
+            tabindex="0"
+            data-art-card
+            data-category="study"
+            data-title="Feather Study"
+            data-medium="Graphite and ornament"
+            data-description="A focused ornamental drawing exploring repetition, feather structure, and the slow discipline of fine linework."
+            data-image="assets/art/feather-study.jpg"
+            aria-label="Open Feather Study artwork"
+          >
+            <span>06</span>
+            <img src="assets/art/feather-study.jpg" alt="Ornamental feather sketch" />
+            <div>
+              <p>Graphite and ornament</p>
+              <h3>Feather Study</h3>
+              <p>A quiet study of repetition, patience, and fine linework.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="stories section split" id="stories" aria-labelledby="stories-title">
+        <div class="split-title">
+          <p class="script-word">My Stories</p>
+          <span>02</span>
+        </div>
+        <div class="story-cards">
+          <article class="story-card reveal">
+            <img src="assets/art/ritual-mask-sketch.jpg" alt="Ritual mask sketch" />
+            <div>
+              <p>My stories.01</p>
+              <h3>Graphite before color.</h3>
+              <p>#Sketch #Research</p>
+            </div>
+          </article>
+          <article class="story-card reveal">
+            <img src="assets/art/festival-face.jpg" alt="Festival face painting" />
+            <div>
+              <p>My stories.02</p>
+              <h3>Warm textures, watchful eyes.</h3>
+              <p>#Painting #Symbol</p>
+            </div>
+          </article>
+          <article class="story-card reveal">
+            <img src="assets/art/chrome-figure.jpg" alt="Chrome figure study" />
+            <div>
+              <p>My stories.03</p>
+              <h3>Future bodies and quiet light.</h3>
+              <p>#Figure #Concept</p>
+            </div>
+          </article>
+          <article class="story-card reveal">
+            <img src="assets/art/blue-deity-canvas.jpg" alt="Blue deity painting" />
+            <div>
+              <p>My stories.04</p>
+              <h3>Culture as a color field.</h3>
+              <p>#Acrylic #Heritage</p>
+            </div>
+          </article>
+        </div>
+        <div class="split-copy story-copy reveal">
+          <p class="eyebrow">Voice of the artist</p>
+          <h2 id="stories-title">
+            Different materials overlap until one personal image appears.
+          </h2>
+          <p>
+            A sketch can become a painting. A mask can become a character. A
+            portrait can become a memory. This site follows the way one person
+            turns fragments into finished visual worlds.
+          </p>
+        </div>
+      </section>
+
+      <section class="process section" id="process" aria-labelledby="process-title">
+        <div class="process-heading reveal">
+          <p class="eyebrow">Studio rhythm</p>
+          <h2 id="process-title">A layered practice, from first mark to final atmosphere.</h2>
+        </div>
+        <div class="process-board">
+          <article class="process-card reveal">
+            <span>01</span>
+            <h3>Collect</h3>
+            <p>Symbols, reference faces, clothing details, cultural memory, and tiny visual fragments enter the sketchbook first.</p>
+          </article>
+          <article class="process-card reveal">
+            <span>02</span>
+            <h3>Shape</h3>
+            <p>Graphite studies find the structure, then color tests decide whether the image should feel devotional, strange, warm, or electric.</p>
+          </article>
+          <article class="process-card reveal">
+            <span>03</span>
+            <h3>Resolve</h3>
+            <p>The final artwork is edited until the face, color, and negative space feel like they belong to the same memory.</p>
+          </article>
+        </div>
+        <div class="motion-strip reveal" aria-hidden="true">
+          <span>Painting / Sketch / Character / Culture / Commission /</span>
+          <span>Painting / Sketch / Character / Culture / Commission /</span>
+        </div>
+      </section>
+
+      <section class="skills section" id="skills" aria-labelledby="skills-title">
+        <p class="script-word">Culture</p>
+        <div class="skills-grid reveal">
+          <div>
+            <span>01</span>
+            <h3>Acrylic painting</h3>
+            <p>Layered color, expressive contrast, and finished canvas pieces.</p>
+          </div>
+          <div>
+            <span>02</span>
+            <h3>Graphite study</h3>
+            <p>Mask drawings, portrait structure, tonal studies, and planning.</p>
+          </div>
+          <div>
+            <span>03</span>
+            <h3>Character design</h3>
+            <p>Hybrid figures, surreal faces, symbolic styling, and concepts.</p>
+          </div>
+          <div>
+            <span>04</span>
+            <h3>Commission work</h3>
+            <p>Personal art pieces developed around mood, story, and scale.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact section" id="contact" aria-labelledby="contact-title">
+        <div class="contact-title reveal">
+          <p class="script-word">Contact.</p>
+          <h2 id="contact-title">Let's create a piece that belongs to one story.</h2>
+        </div>
+        <form class="contact-form reveal" data-contact-form>
+          <label>
+            <span>Name</span>
+            <input type="text" name="name" autocomplete="name" required />
+          </label>
+          <label>
+            <span>Email</span>
+            <input type="email" name="email" autocomplete="email" required />
+          </label>
+          <label>
+            <span>Project</span>
+            <select name="project" required>
+              <option value="">Select one</option>
+              <option>Commission</option>
+              <option>Collaboration</option>
+              <option>Exhibition</option>
+              <option>General inquiry</option>
+            </select>
+          </label>
+          <label>
+            <span>Message</span>
+            <textarea name="message" rows="5" required></textarea>
+          </label>
+          <button type="submit">Send inquiry <span>&rarr;</span></button>
+          <p data-form-status aria-live="polite"></p>
+        </form>
+        <div class="contact-links reveal">
+          <a href="https://www.instagram.com/eeelarp/" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="mailto:pralisthamaharjan21@gmail.com">Email</a>
+          <a href="tel:+9779860295630">Phone</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>&copy; <span data-year></span> Pralistha Maharjan Art Site</p>
+      <a href="#top">back to top</a>
+    </footer>
+
+    <div class="lightbox" data-lightbox aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="lightbox-title">
+      <button class="lightbox-close" type="button" aria-label="Close artwork view" data-lightbox-close></button>
+      <div class="lightbox-shell">
+        <div class="lightbox-media">
+          <img src="assets/art/blue-cowherd.jpg" alt="" data-lightbox-image />
+        </div>
+        <div class="lightbox-copy">
+          <p data-lightbox-medium>Acrylic painting</p>
+          <h2 id="lightbox-title" data-lightbox-title>Blue Cowherd</h2>
+          <p data-lightbox-description></p>
+          <div class="lightbox-actions" aria-label="Artwork navigation">
+            <button type="button" data-lightbox-prev>Previous</button>
+            <button type="button" data-lightbox-next>Next</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

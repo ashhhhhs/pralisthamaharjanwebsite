@@ -12,6 +12,17 @@
 !/images/
 !/videos/
 
+# Raw source/reference media kept outside the deployed art website.
+/art website/*.jpg
+/art website/*.jpeg
+/art website/*.JPG.jpeg
+/art website/*.png
+/art website/*.webp
+/art website/*.mp4
+/art website/*.mov
+/art website/*.MOV
+/art website/*.HEIC
+
 # Local system/editor files.
 .DS_Store
 Thumbs.db
