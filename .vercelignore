@@ -1,0 +1,24 @@
+# Raw source/reference media kept outside production deployments.
+/*.jpg
+/*.jpeg
+/*.png
+/*.webp
+/*.mp4
+/*.mov
+/*.m4v
+/*.webm
+
+# Raw art website source media.
+/art website/*.jpg
+/art website/*.jpeg
+/art website/*.JPG.jpeg
+/art website/*.png
+/art website/*.webp
+/art website/*.mp4
+/art website/*.mov
+/art website/*.MOV
+/art website/*.HEIC
+
+# Local system/editor files.
+.DS_Store
+Thumbs.db
