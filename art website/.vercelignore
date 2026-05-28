@@ -1,0 +1,14 @@
+# Raw source/reference media kept outside production deployments.
+/*.jpg
+/*.jpeg
+/*.JPG.jpeg
+/*.png
+/*.webp
+/*.mp4
+/*.mov
+/*.MOV
+/*.HEIC
+
+# Local system/editor files.
+.DS_Store
+Thumbs.db
