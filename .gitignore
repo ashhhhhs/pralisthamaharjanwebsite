@@ -1,0 +1,17 @@
+# Raw source/reference media kept outside the deployed website.
+/*.jpg
+/*.jpeg
+/*.png
+/*.webp
+/*.mp4
+/*.mov
+/*.m4v
+/*.webm
+
+# Keep optimized website assets.
+!/images/
+!/videos/
+
+# Local system/editor files.
+.DS_Store
+Thumbs.db

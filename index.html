@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A modern personal modeling portfolio featuring selected shoots, experience, and contact details."
+    />
+    <title>Your Name | Modeling Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header class="site-header" data-header>
+      <a class="brand" href="#home" aria-label="Your Name home">
+        <span>Your</span>
+        <span>Name</span>
+      </a>
+
+      <button
+        class="nav-toggle"
+        type="button"
+        aria-label="Open navigation menu"
+        aria-controls="primary-navigation"
+        aria-expanded="false"
+        data-nav-toggle
+      >
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="site-nav" id="primary-navigation" data-nav>
+        <a href="#about">About</a>
+        <a href="#work">Work</a>
+        <a href="#film">Film</a>
+        <a class="nav-contact" href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero section-pad" id="home" aria-labelledby="hero-title">
+        <div class="hero-bg" aria-hidden="true"></div>
+        <div class="container hero-grid">
+          <div class="hero-copy reveal">
+            <p class="eyebrow">Portfolio 2026</p>
+            <h1 id="hero-title">
+              Your Name
+              <span>Model & Creative Talent</span>
+            </h1>
+            <p class="hero-text">
+              A personal modeling portfolio shaped around expressive portraits,
+              editorial presence, and confident visual storytelling.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#work">View Work</a>
+              <a class="btn btn-secondary" href="#contact">Let's Talk</a>
+            </div>
+          </div>
+
+          <div class="hero-media reveal" aria-label="Portrait feature">
+            <img src="images/hero/hero.jpg" alt="Editorial portrait" />
+            <div class="hero-note">
+              <span>Available for shoots and campaigns</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="about section-pad" id="about" aria-labelledby="about-title">
+        <div class="container about-grid">
+          <div class="section-heading reveal">
+            <p class="eyebrow">About Me</p>
+            <h2 id="about-title">A natural camera presence with editorial range.</h2>
+          </div>
+
+          <div class="about-content reveal">
+            <p>
+              I bring emotion, movement, and quiet confidence to each frame,
+              working with photographers, stylists, and creative teams to shape
+              imagery that feels polished and personal.
+            </p>
+            <p>
+              My portfolio spans portrait, lifestyle, fashion, and campaign-led
+              visuals, with a focus on expressive posing, clean styling, and
+              mood-driven storytelling.
+            </p>
+            <dl class="about-stats" aria-label="Portfolio statistics">
+              <div>
+                <dt>24+</dt>
+                <dd>Shoots completed</dd>
+              </div>
+              <div>
+                <dt>5</dt>
+                <dd>Style directions</dd>
+              </div>
+              <div>
+                <dt>100%</dt>
+                <dd>Camera-ready</dd>
+              </div>
+            </dl>
+          </div>
+
+          <figure class="about-photo reveal">
+            <img src="images/about/profile.jpg" alt="Your Name portrait" />
+          </figure>
+        </div>
+      </section>
+
+      <section class="work section-pad" id="work" aria-labelledby="work-title">
+        <div class="container">
+          <div class="section-heading work-heading reveal">
+            <p class="eyebrow">Selected Shoots</p>
+            <h2 id="work-title">Portraits, campaigns, and visual stories with presence.</h2>
+          </div>
+
+          <div class="project-grid">
+            <article class="project-card reveal">
+              <a class="project-image" href="#" aria-label="View street campaign shoot">
+                <img src="images/projects/electric-motion.jpg" alt="Street campaign shoot preview" />
+              </a>
+              <div class="project-body">
+                <p class="project-kicker">Street Campaign</p>
+                <h3>Electric Motion</h3>
+                <p>
+                  A city-led campaign set with sharp styling, scooter movement,
+                  and a confident lifestyle edge.
+                </p>
+                <div class="project-links">
+                  <a href="#">View Gallery</a>
+                  <a href="#">Shoot Details</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card reveal">
+              <a class="project-image" href="#" aria-label="View beauty close-up shoot">
+                <img
+                  src="images/projects/helmet-close-up.jpg"
+                  alt="Beauty close-up shoot preview"
+                />
+              </a>
+              <div class="project-body">
+                <p class="project-kicker">Beauty</p>
+                <h3>Helmet Close-Up</h3>
+                <p>
+                  A detail-focused portrait with expressive eyes, clean framing,
+                  and a polished editorial finish.
+                </p>
+                <div class="project-links">
+                  <a href="#">View Gallery</a>
+                  <a href="#">Shoot Details</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card reveal">
+              <a class="project-image" href="#" aria-label="View creative portrait story">
+                <img src="images/projects/chalk-wall-story.jpg" alt="Creative portrait story preview" />
+              </a>
+              <div class="project-body">
+                <p class="project-kicker">Creative Portrait</p>
+                <h3>Chalk Wall Story</h3>
+                <p>
+                  A playful indoor portrait pairing soft styling with a graphic
+                  backdrop and curious, candid expression.
+                </p>
+                <div class="project-links">
+                  <a href="#">View Gallery</a>
+                  <a href="#">Shoot Details</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card reveal">
+              <a class="project-image" href="#" aria-label="View lifestyle portrait shoot">
+                <img src="images/projects/garden-light.jpg" alt="Lifestyle portrait shoot preview" />
+              </a>
+              <div class="project-body">
+                <p class="project-kicker">Lifestyle</p>
+                <h3>Garden Light</h3>
+                <p>
+                  A bright, personal portrait story with relaxed movement,
+                  approachable styling, and natural warmth.
+                </p>
+                <div class="project-links">
+                  <a href="#">View Gallery</a>
+                  <a href="#">Shoot Details</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="film section-pad" id="film" aria-labelledby="film-title">
+        <div class="container film-grid">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Shoot Film</p>
+            <h2 id="film-title">A short motion reel from the latest shoot.</h2>
+          </div>
+
+          <div class="film-copy reveal">
+            <p>
+              Motion brings the portfolio into a more cinematic space, showing
+              posture, movement, and camera presence beyond still frames.
+            </p>
+            <p>
+              Use this space for behind-the-scenes clips, campaign reels, or
+              any short video that helps casting teams understand your energy on
+              set.
+            </p>
+          </div>
+
+          <div class="film-player reveal">
+            <video
+              controls
+              playsinline
+              preload="metadata"
+              poster="images/video/shoot-poster.jpg"
+            >
+              <source src="videos/shoot-film.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact section-pad" id="contact" aria-labelledby="contact-title">
+        <div class="container contact-grid">
+          <div class="contact-copy reveal">
+            <p class="eyebrow">Contact</p>
+            <h2 id="contact-title">Let's connect.</h2>
+            <p>
+              For shoots, campaigns, collaborations, and creative inquiries,
+              reach out directly by phone, email, or Instagram.
+            </p>
+          </div>
+
+          <div class="contact-card reveal" aria-label="Contact information">
+            <a class="contact-method" href="tel:+9779860295630">
+              <span class="method-label">Phone</span>
+              <span>9860295630</span>
+            </a>
+            <a class="contact-method" href="mailto:pralisthamaharjan21@gmail.com">
+              <span class="method-label">Email</span>
+              <span>pralisthamaharjan21@gmail.com</span>
+            </a>
+            <a
+              class="contact-method"
+              href="https://www.instagram.com/eeelarp/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="method-label">Instagram</span>
+              <span>@eeelarp</span>
+            </a>
+            <div class="social-links" aria-label="Social media links">
+              <a
+                href="https://www.instagram.com/eeelarp/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M7.75 2h8.5A5.76 5.76 0 0 1 22 7.75v8.5A5.76 5.76 0 0 1 16.25 22h-8.5A5.76 5.76 0 0 1 2 16.25v-8.5A5.76 5.76 0 0 1 7.75 2Zm0 2A3.75 3.75 0 0 0 4 7.75v8.5A3.75 3.75 0 0 0 7.75 20h8.5A3.75 3.75 0 0 0 20 16.25v-8.5A3.75 3.75 0 0 0 16.25 4h-8.5ZM12 7.25A4.75 4.75 0 1 1 12 16.75 4.75 4.75 0 0 1 12 7.25Zm0 2A2.75 2.75 0 1 0 12 14.75 2.75 2.75 0 0 0 12 9.25Zm5.05-2.55a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4Z"
+                  />
+                </svg>
+                <span>Instagram</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>&copy; <span data-year></span> Your Name. All rights reserved.</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
