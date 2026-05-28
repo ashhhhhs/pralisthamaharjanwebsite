@@ -1,20 +1,12 @@
 const body = document.body;
 const header = document.querySelector("[data-header]");
-const loader = document.querySelector("[data-loader]");
 const progressBar = document.querySelector("[data-scroll-progress]");
 const menuToggle = document.querySelector("[data-menu-toggle]");
 const menuPanel = document.querySelector("[data-menu-panel]");
 const menuClose = document.querySelector("[data-menu-close]");
-const menuLinks = [...document.querySelectorAll(".menu-panel a")];
+const menuLinks = [...document.querySelectorAll("[data-menu-link]")];
 const revealItems = [...document.querySelectorAll(".reveal")];
-const parallaxItems = [...document.querySelectorAll("[data-parallax]")];
-const hero = document.querySelector(".hero");
-const heroCollage = document.querySelector(".hero-collage");
-const heroImages = [...document.querySelectorAll(".hero-img[data-depth]")];
-const year = document.querySelector("[data-year]");
-const contactForm = document.querySelector("[data-contact-form]");
-const formStatus = document.querySelector("[data-form-status]");
-const filterButtons = [...document.querySelectorAll("[data-filter]")];
+const yearItems = [...document.querySelectorAll("[data-year]")];
 const artCards = [...document.querySelectorAll("[data-art-card]")];
 const lightbox = document.querySelector("[data-lightbox]");
 const lightboxImage = document.querySelector("[data-lightbox-image]");
@@ -24,65 +16,53 @@ const lightboxDescription = document.querySelector("[data-lightbox-description]"
 const lightboxClose = document.querySelector("[data-lightbox-close]");
 const lightboxPrev = document.querySelector("[data-lightbox-prev]");
 const lightboxNext = document.querySelector("[data-lightbox-next]");
+const contactForm = document.querySelector("[data-contact-form]");
+const formStatus = document.querySelector("[data-form-status]");
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-const pointerFine = window.matchMedia("(pointer: fine)");
+const touchArtworkMode = window.matchMedia("(hover: none), (pointer: coarse), (max-width: 759px)");
 
-let ticking = false;
 let activeArtworkIndex = 0;
 let lastFocusedElement = null;
+let ticking = false;
 
-if (year) {
-  year.textContent = new Date().getFullYear();
-}
-
-const finishLoading = () => {
-  body.classList.add("is-ready");
-  body.classList.remove("is-loading");
-};
-
-body.classList.add("is-loading");
-window.addEventListener("load", () => window.setTimeout(finishLoading, 420), { once: true });
-window.setTimeout(finishLoading, 1800);
+yearItems.forEach((item) => {
+  item.textContent = new Date().getFullYear();
+});
 
 const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
 
-const setHeaderState = () => {
-  header?.classList.toggle("is-scrolled", window.scrollY > 16);
+const prepareArtworkImages = () => {
+  artCards.forEach((card) => {
+    const image = card.querySelector(":scope > img");
+    if (!image) return;
+
+    const shell = document.createElement("span");
+    shell.className = "art-image-shell";
+    image.before(shell);
+    shell.append(image);
+
+    const colorImage = image.cloneNode(false);
+    colorImage.className = "art-color-image";
+    colorImage.alt = "";
+    colorImage.loading = "lazy";
+    colorImage.setAttribute("aria-hidden", "true");
+    shell.append(colorImage);
+  });
 };
 
-const setScrollProgress = () => {
-  if (!progressBar) return;
+prepareArtworkImages();
 
+const updateScrollState = () => {
+  ticking = false;
+  header?.classList.toggle("is-scrolled", window.scrollY > 8);
+
+  if (!progressBar) return;
   const scrollable = document.documentElement.scrollHeight - window.innerHeight;
   const progress = scrollable > 0 ? window.scrollY / scrollable : 0;
   progressBar.style.transform = `scaleX(${clamp(progress, 0, 1)})`;
 };
 
-const setParallax = () => {
-  if (reduceMotion.matches || window.innerWidth < 861) {
-    parallaxItems.forEach((item) => item.style.setProperty("--parallax-y", "0px"));
-    return;
-  }
-
-  const viewportCenter = window.innerHeight / 2;
-
-  parallaxItems.forEach((item) => {
-    const rect = item.getBoundingClientRect();
-    const itemCenter = rect.top + rect.height / 2;
-    const ratio = clamp((itemCenter - viewportCenter) / window.innerHeight, -1, 1);
-    const strength = Number(item.dataset.parallax || 0);
-    item.style.setProperty("--parallax-y", `${ratio * strength}px`);
-  });
-};
-
-const updateScrollState = () => {
-  ticking = false;
-  setHeaderState();
-  setScrollProgress();
-  setParallax();
-};
-
-const requestScrollUpdate = () => {
+const requestScrollState = () => {
   if (ticking) return;
   ticking = true;
   window.requestAnimationFrame(updateScrollState);
@@ -92,6 +72,7 @@ const openMenu = () => {
   menuPanel?.classList.add("is-open");
   menuPanel?.setAttribute("aria-hidden", "false");
   menuToggle?.setAttribute("aria-expanded", "true");
+  menuToggle?.setAttribute("aria-label", "Close menu");
   body.classList.add("menu-open");
   window.setTimeout(() => menuClose?.focus(), 120);
 };
@@ -100,6 +81,7 @@ const closeMenu = () => {
   menuPanel?.classList.remove("is-open");
   menuPanel?.setAttribute("aria-hidden", "true");
   menuToggle?.setAttribute("aria-expanded", "false");
+  menuToggle?.setAttribute("aria-label", "Open menu");
   body.classList.remove("menu-open");
 };
 
@@ -119,144 +101,84 @@ menuClose?.addEventListener("click", () => {
 
 menuLinks.forEach((link) => link.addEventListener("click", closeMenu));
 
-const revealObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
-      entry.target.classList.add("is-visible");
-      revealObserver.unobserve(entry.target);
-    });
-  },
-  { threshold: 0.12, rootMargin: "0px 0px -60px" }
-);
+if ("IntersectionObserver" in window && !reduceMotion.matches) {
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        revealObserver.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.12, rootMargin: "0px 0px -48px" }
+  );
 
-revealItems.forEach((item, index) => {
-  item.style.setProperty("--delay", `${Math.min(index * 34, 260)}ms`);
-  revealObserver.observe(item);
-});
-
-const resetHeroMotion = () => {
-  heroCollage?.style.setProperty("--hero-rx", "0deg");
-  heroCollage?.style.setProperty("--hero-ry", "0deg");
-  heroImages.forEach((image) => {
-    image.style.setProperty("--float-x", "0px");
-    image.style.setProperty("--float-y", "0px");
+  revealItems.forEach((item, index) => {
+    item.style.setProperty("--delay", `${Math.min(index * 18, 160)}ms`);
+    item.addEventListener(
+      "transitionend",
+      (event) => {
+        if (event.target === item && event.propertyName === "transform") {
+          item.classList.add("is-motion-done");
+        }
+      },
+      { once: true }
+    );
+    revealObserver.observe(item);
   });
-};
+} else {
+  revealItems.forEach((item) => item.classList.add("is-visible", "is-motion-done"));
+}
 
-const setHeroMotion = (event) => {
-  if (!hero || !heroCollage || reduceMotion.matches || !pointerFine.matches) return;
+const visibleArtworkRatios = new Map();
 
-  const rect = hero.getBoundingClientRect();
-  const x = clamp((event.clientX - rect.left) / rect.width - 0.5, -0.5, 0.5);
-  const y = clamp((event.clientY - rect.top) / rect.height - 0.5, -0.5, 0.5);
-
-  heroCollage.style.setProperty("--hero-rx", `${y * -4}deg`);
-  heroCollage.style.setProperty("--hero-ry", `${x * 5}deg`);
-
-  heroImages.forEach((image) => {
-    const depth = Number(image.dataset.depth || 0);
-    image.style.setProperty("--float-x", `${x * depth * 90}px`);
-    image.style.setProperty("--float-y", `${y * depth * 70}px`);
-  });
-};
-
-hero?.addEventListener("pointermove", setHeroMotion);
-hero?.addEventListener("pointerleave", resetHeroMotion);
-
-const visibleArtCards = () => artCards.filter((card) => !card.hidden);
-
-const animateCardIn = (card) => {
-  card.hidden = false;
-  card.classList.add("is-filtering");
-
-  if (reduceMotion.matches || !card.animate) {
-    card.classList.remove("is-filtering");
-    return;
-  }
-
-  card
-    .animate(
-      [
-        { opacity: 0, transform: "translateY(18px)" },
-        { opacity: 1, transform: "translateY(0)" },
-      ],
-      { duration: 420, easing: "cubic-bezier(0.22, 1, 0.36, 1)" }
-    )
-    .finished.finally(() => card.classList.remove("is-filtering"));
-};
-
-const animateCardOut = (card, activeFilter) => {
-  card.classList.add("is-filtering");
-
-  if (reduceMotion.matches || !card.animate) {
-    card.hidden = true;
-    card.classList.remove("is-filtering");
-    return;
-  }
-
-  card
-    .animate(
-      [
-        { opacity: 1, transform: "translateY(0)" },
-        { opacity: 0, transform: "translateY(18px)" },
-      ],
-      { duration: 220, easing: "ease" }
-    )
-    .finished.finally(() => {
-      const stillHidden = activeFilter !== "all" && card.dataset.category !== activeFilter;
-      card.hidden = stillHidden;
-      card.classList.remove("is-filtering");
-    });
-};
-
-const applyFilter = (filter) => {
-  filterButtons.forEach((button) => {
-    const active = button.dataset.filter === filter;
-    button.classList.toggle("is-active", active);
-    button.setAttribute("aria-pressed", String(active));
-  });
-
+const setMobileColorArtwork = (activeCard) => {
   artCards.forEach((card) => {
-    const shouldShow = filter === "all" || card.dataset.category === filter;
-    card.tabIndex = shouldShow ? 0 : -1;
-
-    if (shouldShow) {
-      animateCardIn(card);
-      return;
-    }
-
-    animateCardOut(card, filter);
+    card.classList.toggle("is-mobile-color", card === activeCard);
   });
 };
 
-filterButtons.forEach((button) => {
-  button.setAttribute("aria-pressed", String(button.classList.contains("is-active")));
-  button.addEventListener("click", () => applyFilter(button.dataset.filter));
-});
+if ("IntersectionObserver" in window && touchArtworkMode.matches && artCards.length) {
+  const colorObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          visibleArtworkRatios.set(entry.target, entry.intersectionRatio);
+          return;
+        }
+
+        visibleArtworkRatios.delete(entry.target);
+      });
+
+      const activeEntry = [...visibleArtworkRatios.entries()].sort((a, b) => b[1] - a[1])[0];
+      setMobileColorArtwork(activeEntry?.[0] || null);
+    },
+    { threshold: [0.25, 0.45, 0.65, 0.85], rootMargin: "-18% 0px -26%" }
+  );
+
+  artCards.forEach((card) => colorObserver.observe(card));
+}
 
 const setLightboxContent = (card) => {
   if (!card || !lightboxImage || !lightboxTitle || !lightboxMedium || !lightboxDescription) return;
 
   lightboxImage.src = card.dataset.image;
-  lightboxImage.alt = card.dataset.title;
-  lightboxTitle.textContent = card.dataset.title;
-  lightboxMedium.textContent = card.dataset.medium;
-  lightboxDescription.textContent = card.dataset.description;
+  lightboxImage.alt = card.dataset.title || "";
+  lightboxTitle.textContent = card.dataset.title || "";
+  lightboxMedium.textContent = card.dataset.medium || "";
+  lightboxDescription.textContent = card.dataset.description || "";
 };
 
 const openLightbox = (card) => {
   if (!lightbox || !card) return;
 
-  const cards = visibleArtCards();
-  activeArtworkIndex = Math.max(cards.indexOf(card), 0);
+  activeArtworkIndex = Math.max(artCards.indexOf(card), 0);
   lastFocusedElement = document.activeElement;
   setLightboxContent(card);
-
   lightbox.classList.add("is-open");
   lightbox.setAttribute("aria-hidden", "false");
   body.classList.add("lightbox-open");
-  window.setTimeout(() => lightboxClose?.focus(), 90);
+  window.setTimeout(() => lightboxClose?.focus(), 100);
 };
 
 const closeLightbox = () => {
@@ -272,14 +194,15 @@ const closeLightbox = () => {
 };
 
 const moveLightbox = (direction) => {
-  const cards = visibleArtCards();
-  if (!cards.length) return;
-
-  activeArtworkIndex = (activeArtworkIndex + direction + cards.length) % cards.length;
-  setLightboxContent(cards[activeArtworkIndex]);
+  if (!artCards.length) return;
+  activeArtworkIndex = (activeArtworkIndex + direction + artCards.length) % artCards.length;
+  setLightboxContent(artCards[activeArtworkIndex]);
 };
 
 artCards.forEach((card) => {
+  card.addEventListener("pointerdown", () => {
+    if (touchArtworkMode.matches) setMobileColorArtwork(card);
+  });
   card.addEventListener("click", () => openLightbox(card));
   card.addEventListener("keydown", (event) => {
     if (event.key !== "Enter" && event.key !== " ") return;
@@ -306,22 +229,18 @@ window.addEventListener("keydown", (event) => {
   if (event.key === "ArrowRight") moveLightbox(1);
 });
 
-window.addEventListener("scroll", requestScrollUpdate, { passive: true });
-window.addEventListener("resize", requestScrollUpdate);
+window.addEventListener("scroll", requestScrollState, { passive: true });
+window.addEventListener("resize", requestScrollState);
 updateScrollState();
 
 contactForm?.addEventListener("submit", (event) => {
   event.preventDefault();
 
   const formData = new FormData(contactForm);
-  const name = formData.get("name");
   const email = formData.get("email");
-  const project = formData.get("project");
   const message = formData.get("message");
-  const subject = encodeURIComponent(`Art inquiry: ${project}`);
-  const bodyText = encodeURIComponent(
-    `Name: ${name}\nEmail: ${email}\nProject: ${project}\n\n${message}`
-  );
+  const subject = encodeURIComponent("Art inquiry");
+  const bodyText = encodeURIComponent(`Email: ${email}\n\n${message}`);
 
   if (formStatus) {
     formStatus.textContent = "Opening your email app with the inquiry ready to send.";
